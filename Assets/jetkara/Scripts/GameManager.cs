@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-	public GameObject objects;
+    public GameObject objects;
 
 	public TextMesh scoreLabel;
 	public static int score;
