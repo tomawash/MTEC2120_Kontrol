@@ -47,12 +47,12 @@ public class PlayerTrackedObjectBoth : MonoBehaviour
 
 		float normY = 3 * Mathf.Clamp(output.y - lastY, -1, 1);
 		float normX = 3 * Mathf.Clamp(output.x - lastX, -1, 1);
-		transform.position = new Vector3(x, y, 0);
-		transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x - normX, transform.position.y - normY, transform.position.z), 0.1f);
+		//transform.position = new Vector3(x, y, 0);
+		transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x + normX, transform.position.y - normY, transform.position.z), 0.2f);
 		
-		if(transform.position.x > Mathf.Abs(xMax) || transform.position.x < Mathf.Abs(xMax) * -1)
+		if (transform.position.x > Mathf.Abs(xMax) || transform.position.x < Mathf.Abs(xMax) * -1)
         {
-			transform.position = new Vector3( xMax * Mathf.Sign(transform.position.x), transform.position.y, 0);
+			transform.position = new Vector3(xMax * Mathf.Sign(transform.position.x), transform.position.y, 0);
         }
 
 		if (transform.position.y > Mathf.Abs(yMax) || transform.position.y < Mathf.Abs(yMax) * -1)
