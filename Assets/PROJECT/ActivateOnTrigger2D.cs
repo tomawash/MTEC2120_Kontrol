@@ -7,12 +7,14 @@ public class ActivateOnTrigger2D : MonoBehaviour
 {
     bool activated = false;
     bool check = false;
-    int countdown = 4;
+    public int countdown = 4;
 
     public Color newColor;
     private SpriteRenderer rend;
 
     [SerializeField] private UnityEvent myTrigger;
+
+    public ParticleSystem partsys = new ParticleSystem();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,6 +24,10 @@ public class ActivateOnTrigger2D : MonoBehaviour
 
             myTrigger.Invoke();
             activated = false;
+            countdown = 4;
+
+            //particles activate here
+            partsys.Play();
         }
     }
 
